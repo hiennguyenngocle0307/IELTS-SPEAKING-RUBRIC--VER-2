@@ -29,7 +29,7 @@
         body { margin: 0; background-color: var(--bg-page); color: var(--text-dark); font-size: 13px; line-height: 1.4; padding-bottom: 50px;}
 
         /* Header */
-        .header { background: white; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); box-shadow: 0 2px 4px rgba(0,0,0,0.02); position: sticky; top: 0; z-index: 100;}
+        .header { background: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); box-shadow: 0 2px 4px rgba(0,0,0,0.02); position: sticky; top: 0; z-index: 100;}
         .brand { display: flex; align-items: center; gap: 15px; }
         .logo-box { background: var(--primary); color: white; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; border-radius: 4px;}
         .brand h1 { margin: 0; font-size: 1.1rem; color: var(--text-dark); }
@@ -41,8 +41,8 @@
         .btn-reset { background: white; color: var(--text-dark); border: 1px solid var(--border-color); }
         .btn-reset:hover { background: #f1f5f9; }
 
-        /* Dashboard Area */
-        .dashboard { max-width: 1800px; margin: 20px auto; padding: 0 20px; display: flex; gap: 20px; }
+        /* Dashboard Area - FULL WIDTH */
+        .dashboard { width: 100%; margin: 20px 0; padding: 0 20px; display: flex; gap: 20px; }
         .panel { background: white; border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
         
         /* Left: Student & Comments */
@@ -64,9 +64,9 @@
         .score-circle { width: 120px; height: 120px; border-radius: 50%; border: 6px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 3rem; font-weight: 900; color: var(--primary); margin-bottom: 10px;}
         .cefr-label { background: var(--text-dark); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: bold;}
 
-        /* Rubric Table Container */
-        .rubric-container { max-width: 1800px; margin: 0 auto; padding: 0 20px; overflow-x: auto; }
-        .table-wrapper { border: 2px solid var(--border-color); border-radius: 8px; overflow: hidden; background: white; }
+        /* Rubric Table Container - FULL WIDTH */
+        .rubric-container { width: 100%; padding: 0 20px; overflow-x: auto; }
+        .table-wrapper { border: 2px solid var(--border-color); border-radius: 8px; overflow: hidden; background: white; width: 100%;}
         
         table { width: 100%; border-collapse: collapse; min-width: 1400px; }
         th, td { border: 1px solid var(--border-color); padding: 12px 10px; vertical-align: top; }
@@ -185,72 +185,72 @@
                     <tr>
                         <td class="col-criteria">Fluency & Coherence</td>
                         <!-- Bands 1-3 (Red) -->
-                        <td class="clickable band-red cell-fc" id="fc-1" onclick="setScore('fc', 1)"><ul><li><b>No communication</b> possible.</li></ul></td>
-                        <td class="clickable band-red cell-fc" id="fc-2" onclick="setScore('fc', 2)"><ul><li>Pauses <b>lengthily</b>.</li><li><b>Little communication</b> possible.</li></ul></td>
-                        <td class="clickable band-red cell-fc" id="fc-3" onclick="setScore('fc', 3)"><ul><li>Speaks with <b>long pauses</b>.</li><li>Limited ability to <b>link sentences</b>.</li></ul></td>
+                        <td class="clickable band-red cell-fc" id="fc-1" onclick="setScore('fc', 1)"><ul><li><b>No communication</b> possible.</li><li><b>No rate</b> of speech.</li></ul></td>
+                        <td class="clickable band-red cell-fc" id="fc-2" onclick="setScore('fc', 2)"><ul><li>Pauses <b>lengthily</b> before most words.</li><li><b>Little communication</b> possible.</li></ul></td>
+                        <td class="clickable band-red cell-fc" id="fc-3" onclick="setScore('fc', 3)"><ul><li>Speaks with <b>long pauses</b>.</li><li><b>Limited ability</b> to link simple sentences.</li><li>Gives only <b>simple responses</b> and is frequently unable to convey basic message.</li></ul></td>
                         <!-- Bands 4-5 (Orange) -->
-                        <td class="clickable band-orange cell-fc" id="fc-4" onclick="setScore('fc', 4)"><ul><li>Cannot respond without <b>noticeable pauses</b>.</li><li>Links basic sentences with <b>repetitious</b> connectives.</li></ul></td>
-                        <td class="clickable band-orange cell-fc" id="fc-5" onclick="setScore('fc', 5)"><ul><li>Maintains flow but uses <b>repetition</b> or <b>slow speech</b>.</li><li>May <b>over-use</b> certain connectives.</li></ul></td>
+                        <td class="clickable band-orange cell-fc" id="fc-4" onclick="setScore('fc', 4)"><ul><li>Cannot respond without <b>noticeable pauses</b> and may speak slowly.</li><li>Frequent <b>repetition and self-correction</b>.</li><li>Links basic sentences but with <b>repetitious use</b> of simple connectives.</li></ul></td>
+                        <td class="clickable band-orange cell-fc" id="fc-5" onclick="setScore('fc', 5)"><ul><li>Usually <b>maintains flow</b> but uses repetition, self-correction and/or slow speech.</li><li>May <b>over-use</b> certain connectives and discourse markers.</li><li>Produces simple speech fluently, but complex communication causes <b>fluency problems</b>.</li></ul></td>
                         <!-- Bands 6-8 (Green) -->
-                        <td class="clickable band-green cell-fc" id="fc-6" onclick="setScore('fc', 6)"><ul><li>Willing to speak <b>at length</b>, though may <b>lose coherence</b>.</li><li>Uses connectives but <b>not always appropriately</b>.</li></ul></td>
-                        <td class="clickable band-green cell-fc" id="fc-7" onclick="setScore('fc', 7)"><ul><li>Speaks <b>at length</b> without noticeable effort.</li><li>Some <b>hesitation</b>.</li><li>Uses a range of <b>connectives</b> flexibly.</li></ul></td>
-                        <td class="clickable band-green cell-fc" id="fc-8" onclick="setScore('fc', 8)"><ul><li><b>Speaks fluently</b> with occasional repetition.</li><li>Develops topics <b>coherently</b>.</li></ul></td>
+                        <td class="clickable band-green cell-fc" id="fc-6" onclick="setScore('fc', 6)"><ul><li>Willing to speak <b>at length</b>, though may lose coherence at times due to occasional repetition, self-correction or hesitation.</li><li>Uses a range of connectives and discourse markers but <b>not always appropriately</b>.</li></ul></td>
+                        <td class="clickable band-green cell-fc" id="fc-7" onclick="setScore('fc', 7)"><ul><li>Speaks <b>at length</b> without noticeable effort or loss of coherence.</li><li>May demonstrate <b>language-related hesitation</b> at times, or some repetition/self-correction.</li><li>Uses a range of connectives and discourse markers with <b>some flexibility</b>.</li></ul></td>
+                        <td class="clickable band-green cell-fc" id="fc-8" onclick="setScore('fc', 8)"><ul><li>Speaks fluently with only <b>occasional repetition</b> or self-correction.</li><li>Hesitation is usually <b>content-related</b>.</li><li>Develops topics <b>coherently and appropriately</b>.</li></ul></td>
                         <!-- Band 9 (Blue) -->
-                        <td class="clickable band-blue cell-fc" id="fc-9" onclick="setScore('fc', 9)"><ul><li><b>Speaks fluently</b> with rare repetition.</li><li><b>Cohesion is fully natural</b>.</li><li><b>Develops topics fully</b>.</li></ul></td>
+                        <td class="clickable band-blue cell-fc" id="fc-9" onclick="setScore('fc', 9)"><ul><li>Speaks fluently with only <b>rare repetition</b> or self-correction.</li><li>Hesitation is <b>content-related</b> rather than to search for words/grammar.</li><li>Speaks coherently with <b>fully appropriate</b> cohesive features.</li><li><b>Develops topics fully</b> and appropriately.</li></ul></td>
                     </tr>
 
                     <!-- Vocabulary Row -->
                     <tr>
                         <td class="col-criteria">Lexical Resource</td>
                         <!-- Bands 1-3 (Red) -->
-                        <td class="clickable band-red cell-lr" id="lr-1" onclick="setScore('lr', 1)"><ul><li>Only a few <b>isolated words</b>.</li></ul></td>
-                        <td class="clickable band-red cell-lr" id="lr-2" onclick="setScore('lr', 2)"><ul><li>Produces <b>isolated words</b> or <b>memorised utterances</b>.</li></ul></td>
-                        <td class="clickable band-red cell-lr" id="lr-3" onclick="setScore('lr', 3)"><ul><li>Uses simple vocabulary to convey <b>personal information</b>.</li><li><b>Insufficient vocabulary</b> for unfamiliar topics.</li></ul></td>
+                        <td class="clickable band-red cell-lr" id="lr-1" onclick="setScore('lr', 1)"><ul><li><b>No communication</b> possible.</li><li><b>No rate</b> of speech.</li></ul></td>
+                        <td class="clickable band-red cell-lr" id="lr-2" onclick="setScore('lr', 2)"><ul><li>Only produces <b>isolated words</b> or <b>memorised utterances</b>.</li></ul></td>
+                        <td class="clickable band-red cell-lr" id="lr-3" onclick="setScore('lr', 3)"><ul><li>Uses simple vocabulary to convey <b>personal information</b>.</li><li><b>Insufficient vocabulary</b> for less familiar topics.</li></ul></td>
                         <!-- Bands 4-5 (Orange) -->
-                        <td class="clickable band-orange cell-lr" id="lr-4" onclick="setScore('lr', 4)"><ul><li>Talks about familiar topics but conveys <b>basic meaning</b> on unfamiliar ones.</li><li><b>Rarely attempts paraphrase</b>.</li></ul></td>
-                        <td class="clickable band-orange cell-lr" id="lr-5" onclick="setScore('lr', 5)"><ul><li>Manages familiar topics but uses <b>limited vocabulary</b>.</li><li>Attempts paraphrase with <b>mixed success</b>.</li></ul></td>
+                        <td class="clickable band-orange cell-lr" id="lr-4" onclick="setScore('lr', 4)"><ul><li>Able to talk about familiar topics but can only convey <b>basic meaning</b> on unfamiliar topics.</li><li>Makes <b>frequent errors</b> in word choice.</li><li><b>Rarely attempts paraphrase</b>.</li></ul></td>
+                        <td class="clickable band-orange cell-lr" id="lr-5" onclick="setScore('lr', 5)"><ul><li>Manages to talk about familiar and unfamiliar topics but uses vocabulary with <b>limited flexibility</b>.</li><li>Attempts to use paraphrase but with <b>mixed success</b>.</li></ul></td>
                         <!-- Bands 6-8 (Green) -->
-                        <td class="clickable band-green cell-lr" id="lr-6" onclick="setScore('lr', 6)"><ul><li><b>Wide enough vocabulary</b> to discuss topics at length.</li><li><b>Generally paraphrases successfully</b>.</li></ul></td>
-                        <td class="clickable band-green cell-lr" id="lr-7" onclick="setScore('lr', 7)"><ul><li>Uses vocabulary flexibly across a <b>variety of topics</b>.</li><li>Uses some <b>less common</b> vocabulary.</li><li>Can <b>paraphrase effectively</b>.</li></ul></td>
-                        <td class="clickable band-green cell-lr" id="lr-8" onclick="setScore('lr', 8)"><ul><li>Uses a <b>wide vocabulary</b> resource readily.</li><li>Uses <b>less common</b> and <b>idiomatic</b> vocabulary skillfully.</li></ul></td>
+                        <td class="clickable band-green cell-lr" id="lr-6" onclick="setScore('lr', 6)"><ul><li>Has a <b>wide enough vocabulary</b> to discuss topics at length and make meaning clear in spite of inappropriacies.</li><li><b>Generally paraphrases successfully</b>.</li></ul></td>
+                        <td class="clickable band-green cell-lr" id="lr-7" onclick="setScore('lr', 7)"><ul><li>Uses vocabulary resource <b>flexibly</b> to discuss a variety of topics.</li><li>Uses some <b>less common and idiomatic</b> vocabulary and shows some awareness of style/collocation.</li><li>Uses <b>paraphrase effectively</b>.</li></ul></td>
+                        <td class="clickable band-green cell-lr" id="lr-8" onclick="setScore('lr', 8)"><ul><li>Uses a <b>wide vocabulary resource</b> readily and flexibly to convey precise meaning.</li><li>Uses <b>less common and idiomatic</b> vocabulary skilfully, with occasional inaccuracies.</li><li>Uses <b>paraphrase effectively</b> as required.</li></ul></td>
                         <!-- Band 9 (Blue) -->
-                        <td class="clickable band-blue cell-lr" id="lr-9" onclick="setScore('lr', 9)"><ul><li>Uses vocabulary with <b>full flexibility</b> and <b>precision</b>.</li><li>Uses <b>idiomatic language</b> naturally.</li></ul></td>
+                        <td class="clickable band-blue cell-lr" id="lr-9" onclick="setScore('lr', 9)"><ul><li>Uses vocabulary with <b>full flexibility and precision</b> in all topics.</li><li>Uses <b>idiomatic language</b> naturally and accurately.</li></ul></td>
                     </tr>
 
                     <!-- Grammar Row -->
                     <tr>
-                        <td class="col-criteria">Grammar</td>
+                        <td class="col-criteria">Grammatical Range & Accuracy</td>
                         <!-- Bands 1-3 (Red) -->
-                        <td class="clickable band-red cell-gra" id="gra-1" onclick="setScore('gra', 1)"><ul><li><b>No communicable structures</b>.</li></ul></td>
+                        <td class="clickable band-red cell-gra" id="gra-1" onclick="setScore('gra', 1)"><ul><li><b>No communication</b> possible.</li><li><b>No rate</b> of speech.</li></ul></td>
                         <td class="clickable band-red cell-gra" id="gra-2" onclick="setScore('gra', 2)"><ul><li><b>Cannot produce</b> basic sentence forms.</li></ul></td>
-                        <td class="clickable band-red cell-gra" id="gra-3" onclick="setScore('gra', 3)"><ul><li>Attempts basic sentence forms but with <b>abundant errors</b>.</li></ul></td>
+                        <td class="clickable band-red cell-gra" id="gra-3" onclick="setScore('gra', 3)"><ul><li>Attempts basic sentence forms but with <b>limited success</b>, or relies on memorised utterances.</li><li>Makes <b>numerous errors</b> except in memorised expressions.</li></ul></td>
                         <!-- Bands 4-5 (Orange) -->
-                        <td class="clickable band-orange cell-gra" id="gra-4" onclick="setScore('gra', 4)"><ul><li>Produces basic sentence forms.</li><li><b>Frequent errors</b> may lead to misunderstanding.</li></ul></td>
-                        <td class="clickable band-orange cell-gra" id="gra-5" onclick="setScore('gra', 5)"><ul><li>Produces <b>basic sentence forms</b> with reasonable accuracy.</li><li>Complex structures <b>usually contain errors</b>.</li></ul></td>
+                        <td class="clickable band-orange cell-gra" id="gra-4" onclick="setScore('gra', 4)"><ul><li>Produces basic sentence forms and some correct simple sentences but <b>subordinate structures are rare</b>.</li><li>Errors are frequent and may <b>lead to misunderstanding</b>.</li></ul></td>
+                        <td class="clickable band-orange cell-gra" id="gra-5" onclick="setScore('gra', 5)"><ul><li>Produces basic sentence forms with <b>reasonable accuracy</b>.</li><li>Uses a limited range of more complex structures, but these <b>usually contain errors</b>.</li></ul></td>
                         <!-- Bands 6-8 (Green) -->
-                        <td class="clickable band-green cell-gra" id="gra-6" onclick="setScore('gra', 6)"><ul><li>Uses a <b>mix of simple and complex</b> structures.</li><li>May make <b>frequent mistakes</b> with complex structures.</li></ul></td>
-                        <td class="clickable band-green cell-gra" id="gra-7" onclick="setScore('gra', 7)"><ul><li>Uses a range of <b>complex structures</b> flexibly.</li><li><b>Frequently produces</b> error-free sentences.</li></ul></td>
-                        <td class="clickable band-green cell-gra" id="gra-8" onclick="setScore('gra', 8)"><ul><li>Uses a <b>wide range</b> of structures flexibly.</li><li>Majority of <b>error-free</b> sentences.</li></ul></td>
+                        <td class="clickable band-green cell-gra" id="gra-6" onclick="setScore('gra', 6)"><ul><li>Uses a <b>mix of simple and complex structures</b>, but with limited flexibility.</li><li>May make <b>frequent mistakes</b> with complex structures though these rarely cause comprehension problems.</li></ul></td>
+                        <td class="clickable band-green cell-gra" id="gra-7" onclick="setScore('gra', 7)"><ul><li>Uses a range of <b>complex structures with some flexibility</b>.</li><li>Frequently produces <b>error-free sentences</b>, though some grammatical mistakes persist.</li></ul></td>
+                        <td class="clickable band-green cell-gra" id="gra-8" onclick="setScore('gra', 8)"><ul><li>Uses a <b>wide range of structures flexibly</b>.</li><li>Produces a <b>majority of error-free sentences</b> with only very occasional inappropriacies.</li></ul></td>
                         <!-- Band 9 (Blue) -->
-                        <td class="clickable band-blue cell-gra" id="gra-9" onclick="setScore('gra', 9)"><ul><li>Uses a <b>full range</b> of structures naturally.</li><li>Consistently <b>accurate</b> apart from 'slips'.</li></ul></td>
+                        <td class="clickable band-blue cell-gra" id="gra-9" onclick="setScore('gra', 9)"><ul><li>Uses a <b>full range of structures naturally</b> and appropriately.</li><li>Produces <b>consistently accurate</b> structures apart from 'slips' characteristic of native speaker speech.</li></ul></td>
                     </tr>
 
                     <!-- Pronunciation Row -->
                     <tr>
                         <td class="col-criteria">Pronunciation</td>
                         <!-- Bands 1-3 (Red) -->
-                        <td class="clickable band-red cell-pr" id="pr-1" onclick="setScore('pr', 1)"><ul><li>Speech is <b>unintelligible</b>.</li></ul></td>
+                        <td class="clickable band-red cell-pr" id="pr-1" onclick="setScore('pr', 1)"><ul><li><b>No communication</b> possible.</li><li><b>No rate</b> of speech.</li></ul></td>
                         <td class="clickable band-red cell-pr" id="pr-2" onclick="setScore('pr', 2)"><ul><li>Speech is <b>often unintelligible</b>.</li></ul></td>
-                        <td class="clickable band-red cell-pr" id="pr-3" onclick="setScore('pr', 3)"><ul><li>Shows some features of Band 2 and some of Band 4.</li></ul></td>
+                        <td class="clickable band-red cell-pr" id="pr-3" onclick="setScore('pr', 3)"><ul><li>Shows some of the features of Band 2 and some, but not all, of the <b>positive features of Band 4</b>.</li></ul></td>
                         <!-- Bands 4-5 (Orange) -->
-                        <td class="clickable band-orange cell-pr" id="pr-4" onclick="setScore('pr', 4)"><ul><li>Uses a <b>limited range</b> of pronunciation features.</li><li><b>Frequent mispronunciations</b> cause difficulty.</li></ul></td>
-                        <td class="clickable band-orange cell-pr" id="pr-5" onclick="setScore('pr', 5)"><ul><li>Shows all positive features of Band 4 and some of Band 6.</li></ul></td>
+                        <td class="clickable band-orange cell-pr" id="pr-4" onclick="setScore('pr', 4)"><ul><li>Uses a <b>limited range</b> of pronunciation features.</li><li>Attempts to control features but <b>lapses are frequent</b>.</li><li>Mispronunciations are frequent and cause <b>some difficulty</b> for the listener.</li></ul></td>
+                        <td class="clickable band-orange cell-pr" id="pr-5" onclick="setScore('pr', 5)"><ul><li>Shows all the positive features of Band 4 and some, but not all, of the <b>positive features of Band 6</b>.</li></ul></td>
                         <!-- Bands 6-8 (Green) -->
-                        <td class="clickable band-green cell-pr" id="pr-6" onclick="setScore('pr', 6)"><ul><li>Uses a range of features with <b>mixed control</b>.</li><li>Can <b>generally be understood</b> throughout.</li></ul></td>
-                        <td class="clickable band-green cell-pr" id="pr-7" onclick="setScore('pr', 7)"><ul><li>Shows <b>all positive features</b> of Band 6 and some of Band 8.</li></ul></td>
-                        <td class="clickable band-green cell-pr" id="pr-8" onclick="setScore('pr', 8)"><ul><li>Uses a <b>wide range</b> of features flexibly.</li><li><b>Easy to understand</b>; L1 accent has minimal effect.</li></ul></td>
+                        <td class="clickable band-green cell-pr" id="pr-6" onclick="setScore('pr', 6)"><ul><li>Uses a range of pronunciation features with <b>mixed control</b>.</li><li>Can <b>generally be understood</b> throughout, though mispronunciation of individual words reduces clarity at times.</li></ul></td>
+                        <td class="clickable band-green cell-pr" id="pr-7" onclick="setScore('pr', 7)"><ul><li>Shows all the positive features of Band 6 and some, but not all, of the <b>positive features of Band 8</b>.</li></ul></td>
+                        <td class="clickable band-green cell-pr" id="pr-8" onclick="setScore('pr', 8)"><ul><li>Uses a <b>wide range of pronunciation features</b>; sustains flexible use with only occasional lapses.</li><li>Is <b>easy to understand</b> throughout; L1 accent has minimal effect on intelligibility.</li></ul></td>
                         <!-- Band 9 (Blue) -->
-                        <td class="clickable band-blue cell-pr" id="pr-9" onclick="setScore('pr', 9)"><ul><li>Uses a <b>full range</b> of pronunciation features.</li><li>Is <b>effortless to understand</b>.</li></ul></td>
+                        <td class="clickable band-blue cell-pr" id="pr-9" onclick="setScore('pr', 9)"><ul><li>Uses a <b>full range of pronunciation features</b> with precision and subtlety.</li><li>Sustains <b>flexible use</b> of features throughout.</li><li>Is <b>effortless to understand</b>.</li></ul></td>
                     </tr>
                 </tbody>
             </table>
@@ -379,7 +379,7 @@
 
             report += `1. Fluency and Coherence (Band ${scores.fc})\n${fcText}\n`;
             report += `2. Lexical Resource (Band ${scores.lr})\n${lrText}\n`;
-            report += `3. Grammar (Band ${scores.gra})\n${graText}\n`;
+            report += `3. Grammatical Range & Accuracy (Band ${scores.gra})\n${graText}\n`;
             report += `4. Pronunciation (Band ${scores.pr})\n${prText}\n`;
 
             const fileName = studentName === "Unnamed Student" ? "IELTS_Speaking_Report.txt" : `${studentName.replace(/ /g, "_")}_IELTS_Report.txt`;
